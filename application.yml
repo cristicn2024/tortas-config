@@ -1,0 +1,4 @@
+# application.yml (opcional para configuración global)
+spring:
+  application:
+    name: global
