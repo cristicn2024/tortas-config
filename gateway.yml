@@ -48,12 +48,12 @@ spring:
 
 eureka:
   instance:
-    hostname: localhost
+    hostname: tortas-mejorado-discovery.onrender.com
   client:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: https://tortas-mejorado-discovery.onrender.com/eureka/
 
 logging:
   level:

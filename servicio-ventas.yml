@@ -5,14 +5,14 @@ spring:
   application:
     name: servicio-ventas
 eureka:
+  instance:
+    hostname: tortas-mejorado-discovery.onrender.com
   client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka/
     register-with-eureka: true
     fetch-registry: true
-  instance:
-    hostname: localhost
-    prefer-ip-address: true
+    service-url:
+      defaultZone: https://tortas-mejorado-discovery.onrender.com/eureka/
+
 
 external:
   api:
