@@ -45,7 +45,7 @@ spring:
             - Path=/api/v1/ventas/**
 
 
-
+# sxmsdcs
 eureka:
   instance:
     hostname: tortas-mejorado-discovery.onrender.com
