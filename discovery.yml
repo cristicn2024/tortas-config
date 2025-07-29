@@ -11,4 +11,4 @@ eureka:
     fetch-registry: false
     
   instance:
-    hostname: ${HOSTNAME:localhost}  # Render asigna automáticamente un hostname
+    hostname: ${HOSTNAME:localhost}  # Render asigna automáticamente un hostnameee
