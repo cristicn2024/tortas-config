@@ -1,5 +1,5 @@
 server:
-  port: ${PORT:8761}  # Usa el puerto asignado por Render o 8761 en local
+  port: ${PORT:8761}
 
 spring:
   application:
@@ -11,4 +11,4 @@ eureka:
     fetch-registry: false
     
   instance:
-    hostname: ${HOSTNAME:localhost}  # Render asigna automáticamente un hostnameee
+    hostname: tortas-mejorado-discovery.onrender.com
