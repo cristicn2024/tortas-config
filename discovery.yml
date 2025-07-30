@@ -9,6 +9,16 @@ eureka:
   client:
     register-with-eureka: false
     fetch-registry: false
-    # cambioooos
+    service-url:
+      defaultZone: https://tortas-mejorado-discovery.onrender.com/eureka/  # URL pública en Render
+
   instance:
     hostname: tortas-mejorado-discovery.onrender.com
+    prefer-ip-address: false
+
+  server:
+    enable-self-preservation: false
+    wait-time-in-ms-when-sync-empty: 0
+    peer-node-read-timeout-ms: 1000
+    peer-node-connect-timeout-ms: 1000
+    peer-eureka-nodes-update-interval-ms: 60000
