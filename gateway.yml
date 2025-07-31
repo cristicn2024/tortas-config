@@ -1,5 +1,5 @@
 server:
-  port: 8222
+  port: ${PORT:8080}  # También cambia a 8080 para Render
 
 spring:
   application:
@@ -12,6 +12,7 @@ spring:
       discovery:
         locator:
           enabled: true
+          lower-case-service-id: true  # Agrega esto
       globalcors:
         corsConfigurations:
           '[/**]':
@@ -44,16 +45,19 @@ spring:
           predicates:
             - Path=/api/v1/ventas/**
 
-
-# sxmsdcs
 eureka:
-  instance:
-    hostname: tortas-mejorado-discovery.onrender.com
   client:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: https://tortas-mejorado-discovery.onrender.com
+      defaultZone: https://tortas-mejorado-discovery.onrender.com/eureka/  # Agrega /eureka/
+  
+  instance:
+    prefer-ip-address: true  # Cambia a true para microservicios
+    non-secure-port: ${PORT:8080}
+    secure-port-enabled: true
+    secure-port: 443
+    instance-id: ${spring.application.name}:${spring.application.instance-id:${random.value}}
 
 logging:
   level:
@@ -62,3 +66,4 @@ logging:
     org.springframework.web.reactive.DispatcherHandler: DEBUG
     org.springframework.cloud.loadbalancer: DEBUG
     com.netflix.discovery: INFO
+    com.netflix.eureka: DEBUG  # Agrega esto para más logs de Eureka
