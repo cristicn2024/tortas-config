@@ -12,5 +12,5 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: https://tortas-mejorado-discovery.onrender.com/eureka/
+      defaultZone: https://tortas-mejorado-discovery.onrender.com
 

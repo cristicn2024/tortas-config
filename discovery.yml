@@ -10,7 +10,7 @@ eureka:
     register-with-eureka: false
     fetch-registry: false
     service-url:
-      defaultZone: https://tortas-mejorado-discovery.onrender.com/eureka/  # URL pública en Render
+      defaultZone: https://tortas-mejorado-discovery.onrender.com # URL pública en Render
 
   instance:
     hostname: tortas-mejorado-discovery.onrender.com
