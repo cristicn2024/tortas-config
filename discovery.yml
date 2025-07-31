@@ -1,5 +1,5 @@
 server:
-  port: ${PORT:8080}  # Render usa puerto 8080, no 8761
+  port: ${PORT:8080}
 
 spring:
   application:
@@ -10,8 +10,7 @@ eureka:
     register-with-eureka: false
     fetch-registry: false
     service-url:
-      defaultZone: https://tortas-mejorado-discovery.onrender.com/eureka/  # Agrega /eureka/
-  
+      defaultZone: https://tortas-mejorado-discovery.onrender.com/eureka/
   instance:
     hostname: tortas-mejorado-discovery.onrender.com
     non-secure-port: ${PORT:8080}
@@ -19,7 +18,6 @@ eureka:
     secure-port: 443
     prefer-ip-address: false
     instance-id: ${spring.application.name}:${spring.application.instance-id:${random.value}}
-  
   server:
     enable-self-preservation: false
     wait-time-in-ms-when-sync-empty: 0

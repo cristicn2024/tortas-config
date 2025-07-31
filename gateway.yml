@@ -1,10 +1,9 @@
 server:
-  port: ${PORT:8080}  # También cambia a 8080 para Render
+  port: ${PORT:8080}
 
 spring:
   application:
     name: gateway
-
   cloud:
     gateway:
       websocket:
@@ -12,7 +11,7 @@ spring:
       discovery:
         locator:
           enabled: true
-          lower-case-service-id: true  # Agrega esto
+          lower-case-service-id: true
       globalcors:
         corsConfigurations:
           '[/**]':
@@ -24,22 +23,18 @@ spring:
           uri: lb://AUTH
           predicates:
             - Path=/api/v1/auth/**
-
         - id: usuarios
           uri: lb://USUARIOS
           predicates:
             - Path=/api/v1/usuarios/**
-
         - id: servicio-productos
           uri: lb://SERVICIO-PRODUCTOS
           predicates:
             - Path=/api/v1/productos/**
-
         - id: servicio-ordenes
           uri: lb://SERVICIO-ORDENES
           predicates:
             - Path=/api/v1/ordenes/**
-        
         - id: servicio-ventas
           uri: lb://SERVICIO-VENTAS
           predicates:
@@ -50,10 +45,9 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: https://tortas-mejorado-discovery.onrender.com/eureka/  # Agrega /eureka/
-  
+      defaultZone: https://tortas-mejorado-discovery.onrender.com/eureka/
   instance:
-    prefer-ip-address: true  # Cambia a true para microservicios
+    prefer-ip-address: true
     non-secure-port: ${PORT:8080}
     secure-port-enabled: true
     secure-port: 443
@@ -65,5 +59,5 @@ logging:
     org.springframework.cloud.gateway.handler: DEBUG
     org.springframework.web.reactive.DispatcherHandler: DEBUG
     org.springframework.cloud.loadbalancer: DEBUG
-    com.netflix.discovery: INFO
-    com.netflix.eureka: DEBUG  # Agrega esto para más logs de Eureka
+    com.netflix.discovery: DEBUG
+    com.netflix.eureka: DEBUG
