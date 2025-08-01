@@ -1,6 +1,5 @@
 server:
-  port: ${PORT:8080}
-
+  port: ${PORT:8080} 
 spring:
   application:
     name: servicio-productos
@@ -10,7 +9,7 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: https://tortas-mejorado-discovery.onrender.com/eureka/
+      defaultZone: https://tortas-mejorado-discovery.onrender.com/eureka/  # Agrega /eureka/
   instance:
     prefer-ip-address: true
     non-secure-port: ${PORT:8080}
