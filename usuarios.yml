@@ -3,7 +3,11 @@ server:
 
 spring:
   application:
-    name: usuarios # Cambia por el nombre real del microservicio
+    name: usuarios
+
+  data:
+    mongodb:
+      uri: mongodb+srv://cristicn2004:78357Cas123%2B@clustertortas0.nazanhp.mongodb.net/tortasSallela?retryWrites=true&w=majority&ssl=true&sslInvalidHostNameAllowed=false&appName=ClusterTortas0
 
 eureka:
   client:
@@ -20,3 +24,12 @@ eureka:
     instance-id: ${spring.application.name}:${spring.application.instance-id:${random.value}}
     lease-renewal-interval-in-seconds: 10
     lease-expiration-duration-in-seconds: 30
+
+# Timeouts por si otros microservicios usan Feign para hablar con usuarios
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000     # tiempo para establecer conexión (5s)
+        readTimeout: 5000        # tiempo para esperar respuesta (5s)
+

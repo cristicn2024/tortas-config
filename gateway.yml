@@ -56,6 +56,15 @@ eureka:
     lease-renewal-interval-in-seconds: 10
     lease-expiration-duration-in-seconds: 30
 
+# Timeouts por si otros microservicios usan Feign para hablar con usuarios
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000     # tiempo para establecer conexión (5s)
+        readTimeout: 5000        # tiempo para esperar respuesta (5s)
+
+
 logging:
   level:
     org.springframework.cloud.gateway: DEBUG
