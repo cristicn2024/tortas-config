@@ -47,11 +47,14 @@ eureka:
     service-url:
       defaultZone: https://tortas-mejorado-discovery.onrender.com/eureka/
   instance:
-    prefer-ip-address: true
-    non-secure-port: ${PORT:8080}
+    prefer-ip-address: false
+    hostname: ${RENDER_EXTERNAL_HOSTNAME}
+    non-secure-port: 80
     secure-port-enabled: true
     secure-port: 443
     instance-id: ${spring.application.name}:${spring.application.instance-id:${random.value}}
+    lease-renewal-interval-in-seconds: 10
+    lease-expiration-duration-in-seconds: 30
 
 logging:
   level:

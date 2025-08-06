@@ -1,18 +1,20 @@
 server:
-  port: ${PORT:8080} 
+  port: ${PORT:8080}
+
 spring:
   application:
-    name: servicio-ordenes
+    name: servicio-ordenes # Cambia por el nombre real del microservicio
 
 eureka:
   client:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: https://tortas-mejorado-discovery.onrender.com/eureka/  # Agrega /eureka/
+      defaultZone: https://tortas-mejorado-discovery.onrender.com/eureka/
   instance:
-    prefer-ip-address: true
-    non-secure-port: ${PORT:8080}
+    prefer-ip-address: false
+    hostname: ${RENDER_EXTERNAL_HOSTNAME}
+    non-secure-port: 80
     secure-port-enabled: true
     secure-port: 443
     instance-id: ${spring.application.name}:${spring.application.instance-id:${random.value}}
